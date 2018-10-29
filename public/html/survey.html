@@ -95,7 +95,7 @@
 <div class="ui form">
 
 <!-- Q1 -->
-<div class="grouped fields">
+<div class="grouped fields" id = "q1">
 <label for="question1">1. You find yourself hating large groups of people :</label>
 <div class="field">
     <div class="ui radio checkbox">
@@ -130,7 +130,7 @@
 </div>
 
 <!-- Q2 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q2">
 <label for="question1">2. You love pets:</label>
 <div class="field">
     <div class="ui radio checkbox">
@@ -165,7 +165,7 @@
 </div>
 
 <!-- Q3 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q3">
 <label for="question1">3. You enjoy spicy foods:</label>
 <div class="field">
     <div class="ui radio checkbox">
@@ -200,7 +200,7 @@
 </div>
 
 <!-- Q4 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q4">
     <label for="question1">4. A walk up a steep mountain is a dream date:</label>
     <div class="field">
         <div class="ui radio checkbox">
@@ -235,7 +235,7 @@
 </div>
 
 <!-- Q5 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q5">
         <label for="question1">5. You want a family:</label>
         <div class="field">
             <div class="ui radio checkbox">
@@ -270,7 +270,7 @@
         </div>
     
 <!-- Q6 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q6">
 <label for="question1">6. You work more than you play:</label>
 <div class="field">
     <div class="ui radio checkbox">
@@ -304,7 +304,7 @@
 </div>
 </div>
 <!-- Q7 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q7">
 <label for="question1">7. You love to party:</label>
 <div class="field">
     <div class="ui radio checkbox">
@@ -339,7 +339,7 @@
 </div>
     
 <!-- Q8 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q8">
     <label for="question1">8. A deep thinker is who you want to converse with over surface conversations:</label>
     <div class="field">
         <div class="ui radio checkbox">
@@ -374,7 +374,7 @@
 </div>
 
 <!-- Q9 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q9">
     <label for="question1">9:You like to snuggle:</label>
     <div class="field">
         <div class="ui radio checkbox">
@@ -409,7 +409,7 @@
     </div>
 
 <!-- Q10 -->
-<div class="grouped fields">
+<div class="grouped fields" id="q10">
     <label for="question1">8. You are a free spirit:</label>
     <div class="field">
         <div class="ui radio checkbox">
@@ -467,17 +467,75 @@
     $(document).on("click", "#submit", function(pushingAnswers){
         pushingAnswers.preventDefault();
         
-        //figure it out later
-        var dummyVar = {
-            "name": "",
-            "photo": '',
-            "scores": [2,4,5,2,3,1,5,3,3,1]
+        //made a dummy var for testing
+        // var dummyVar = {
+        //     "name": "",
+        //     "photo": '',
+        //     "scores": [2,4,5,2,3,1,5,3,3,1]
+        // }
+
+        //confirm data was entered by user
+        function confirmForm() {
+            var confirm = true;  //setting var to be equal to boolian of true
+            $('.confirm').each(function(){
+                if ($(this).val() === ""){
+                    confirm = false;
+                }
+            });
+            $('.selected'). each(function(){
+                if ($(this).val()=== ""){
+                    confirm = false;
+                }
+            });
+            return confirm;
+
+        }
+    });
+        //if the user did put in all the information requested then use jquery to pull the values off the id's created on each radio button question.
+        if(confirmForm() === true){
+            let inputData = {
+                name: $("#name").val().trim(),
+                photo:$("#photo").val().trim(),
+                score: [
+                $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val(),
+                ]
+            }
         }
 
+            let presentURL = window.location.origin;
+            //posts the userData via Ajax to the friends.js file
+            $.post(presentURL + "/api/friends", userData, function(data) {
+                //Updates the bestFriend name/photo and toggles the best friend modal on posting the new userData
+                $("#bestFriend").text(data.name);
+                $("#bestFriendPhoto").attr("src", data.photo);
+                $("#bestFriendModal").modal("toggle");
+                //Clears the form on submitting
+                $("#name").val("");
+                $("#photo").val("");
+                $("#q1").val("");
+                $("#q2").val("");
+                $("#q3").val("");
+                $("#q4").val("");
+                $("#q5").val("");
+                $("#q6").val("");
+                $("#q7").val("");
+                $("#q8").val("");
+                $("#q9").val("");
+                $("#q10").val("");
+            });
+
         //clientside post route set up 
-    $.post("api/survey", dummyVar, function(data){console.log(data);});
+    // $.post("api/survey", dummyVar, function(data){console.log(data);});
         
-    } );
 
     </script>
 </body>
