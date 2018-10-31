@@ -6,68 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Survey</title>
+    <!-- css -->
+    <!-- <link rel="stylesheet" href="/Friend_Finder/public/css/style.css"> -->
     <!-- semantic ui -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.css">
-    <!-- jquery  
-              <script  src="https://code.jquery.com/jquery.js"></script>
-    -->
+
+    <script  src="https://code.jquery.com/jquery.js"></script>
+ 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <!-- handlebars -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
-    <!-- adding handlebar Script to limit repedative html for the questions: Will add loop in js file to cycle through the array of questions to get all 10 -->
-<!-- <script id="page-template" type="text/x-handlebars-template">
-  <div class="ui form">
-    <div class="grouped fields"> -->
-    <!-- Questions attempting to have id display along with question from the array of questions: -->
-      <!-- {{#each question}}
-        <label for="question">
-            {{this.id}}
-            {{this.question[i]}}
-        </label>
-        <div class="field">
-            <div class="ui radio checkbox">
-            <input type="radio" name="question1"  tabindex="0" >
-            <label>1</label>
-            </div>
-        </div>
-        <div class="field">
-            <div class="ui radio checkbox">
-            <input type="radio" name="question" tabindex="1" >
-            <label>2</label>
-            </div>
-        </div>
-        <div class="field">
-            <div class="ui radio checkbox">
-            <input type="radio" name="question" tabindex="2">
-            <label>3</label>
-            </div>
-        </div>
-        <div class="field">
-            <div class="ui radio checkbox">
-            <input type="radio" name="questions" tabindex="3">
-            <label>4</label>
-            </div>
-        </div>
-        <div class="field">
-            <div class="ui radio checkbox">
-            <input type="radio" name="question" tabindex="4">
-            <label>5</label>
-            </div>
-        </div>
-        </div>
-      {{/each}}
-      <div>
-      <form id="survey submit">
-        <textarea type="text" name="question"></textarea>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-</script> -->
 
 </head>
 
-<body>
+<body id="background">
     <br>
     <!-- friend finder title  -->
     <header class="ui header center aligned">
@@ -76,12 +29,12 @@
     <br>
 <div class="ui container center aligned">
     <form class="ui form">
-        <div class="field">
+        <div class="field" id="name">
             <label>Name</label>
             <input type="text" name="name" placeholder="Name">
         </div>
-        <div class="field">
-            <label>Last Name</label>
+        <div class="field" id="pic">
+            <label>Profile Pic</label>
             <input type="text" name="Profile Pic" placeholder="Profile Pic">
         </div>
     </form>
@@ -117,7 +70,7 @@
 </div>
 <div class="field">
     <div class="ui radio checkbox">
-        <input type="radio" name="questions1" tabindex="3">
+        <input type="radio" name="question1" tabindex="3">
         <label>4</label>
     </div>
 </div>
@@ -152,7 +105,7 @@
 </div>
 <div class="field">
     <div class="ui radio checkbox">
-        <input type="radio" name="questions2" tabindex="3">
+        <input type="radio" name="question2" tabindex="3">
         <label>4</label>
     </div>
 </div>
@@ -187,7 +140,7 @@
 </div>
 <div class="field">
     <div class="ui radio checkbox">
-        <input type="radio" name="questions3" tabindex="3">
+        <input type="radio" name="question3" tabindex="3">
         <label>4</label>
     </div>
 </div>
@@ -222,7 +175,7 @@
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="questions4" tabindex="3">
+            <input type="radio" name="question4" tabindex="3">
             <label>4</label>
         </div>
     </div>
@@ -257,7 +210,7 @@
         </div>
         <div class="field">
             <div class="ui radio checkbox">
-                <input type="radio" name="questions5" tabindex="3">
+                <input type="radio" name="question5" tabindex="3">
                 <label>4</label>
             </div>
         </div>
@@ -292,7 +245,7 @@
 </div>
 <div class="field">
     <div class="ui radio checkbox">
-        <input type="radio" name="questions6" tabindex="3">
+        <input type="radio" name="question6" tabindex="3">
         <label>4</label>
     </div>
 </div>
@@ -326,7 +279,7 @@
 </div>
 <div class="field">
     <div class="ui radio checkbox">
-        <input type="radio" name="questions7" tabindex="3">
+        <input type="radio" name="question7" tabindex="3">
         <label>4</label>
     </div>
 </div>
@@ -343,31 +296,31 @@
     <label for="question1">8. A deep thinker is who you want to converse with over surface conversations:</label>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="0">
+            <input type="radio" name="question8" tabindex="0">
             <label>1</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="1">
+            <input type="radio" name="question8" tabindex="1">
             <label>2</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="2">
+            <input type="radio" name="question8" tabindex="2">
             <label>3</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="questions3" tabindex="3">
+            <input type="radio" name="question8" tabindex="3">
             <label>4</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="4">
+            <input type="radio" name="question8" tabindex="4">
             <label>5</label>
         </div>
     </div>
@@ -378,31 +331,31 @@
     <label for="question1">9:You like to snuggle:</label>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="0">
+            <input type="radio" name="question9" tabindex="0">
             <label>1</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="1">
+            <input type="radio" name="question9" tabindex="1">
             <label>2</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="2">
+            <input type="radio" name="question9" tabindex="2">
             <label>3</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="questions3" tabindex="3">
+            <input type="radio" name="question9" tabindex="3">
             <label>4</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="4">
+            <input type="radio" name="question9" tabindex="4">
             <label>5</label>
         </div>
     </div>
@@ -413,31 +366,31 @@
     <label for="question1">8. You are a free spirit:</label>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="0">
+            <input type="radio" name="question10" tabindex="0">
             <label>1</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="1">
+            <input type="radio" name="question10" tabindex="1">
             <label>2</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="2">
+            <input type="radio" name="question10" tabindex="2">
             <label>3</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="questions3" tabindex="3">
+            <input type="radio" name="question10" tabindex="3">
             <label>4</label>
         </div>
     </div>
     <div class="field">
         <div class="ui radio checkbox">
-            <input type="radio" name="question3" tabindex="4">
+            <input type="radio" name="question10" tabindex="4">
             <label>5</label>
         </div>
     </div>
@@ -451,6 +404,15 @@
   </div>
 </div>
     <hr>
+
+<!-- selection of friend -->
+<div id ="friendPicked">
+    <h1 class ="friendTitle">New Selected Friend</h1>
+    <h3 id ="bestFriend"></h3>
+    <img id ="friendPic" src="#">
+</div>
+
+
     <!-- api friends list  link-->
 <p><a href="/api/friends">api friend list</a>
     |
@@ -466,16 +428,9 @@
     <script> 
     $(document).on("click", "#submit", function(pushingAnswers){
         pushingAnswers.preventDefault();
-        
-        //made a dummy var for testing
-        // var dummyVar = {
-        //     "name": "",
-        //     "photo": '',
-        //     "scores": [2,4,5,2,3,1,5,3,3,1]
-        // }
-
-        //confirm data was entered by user
-        function confirmForm() {
+     
+     //confirm data was entered by user
+function confirmForm() {
             var confirm = true;  //setting var to be equal to boolian of true
             $('.confirm').each(function(){
                 if ($(this).val() === ""){
@@ -490,12 +445,12 @@
             return confirm;
 
         }
-    });
+     
         //if the user did put in all the information requested then use jquery to pull the values off the id's created on each radio button question.
-        if(confirmForm() === true){
-            let inputData = {
+      if(confirmForm() === true){
+            var inputData = {
                 name: $("#name").val().trim(),
-                photo:$("#photo").val().trim(),
+                photo:$("#pic").val().trim(),
                 score: [
                 $("#q1").val(),
                     $("#q2").val(),
@@ -511,13 +466,14 @@
             }
         }
 
-            let presentURL = window.location.origin;
-            //posts the userData via Ajax to the friends.js file
-            $.post(presentURL + "/api/friends", userData, function(data) {
+           
+        var presentURL = window.location.origin;
+        
+        $.post(presentURL + "/api/friends", inputData, function(data) {
                 //Updates the bestFriend name/photo and toggles the best friend modal on posting the new userData
                 $("#bestFriend").text(data.name);
-                $("#bestFriendPhoto").attr("src", data.photo);
-                $("#bestFriendModal").modal("toggle");
+                $("#FriendPic").attr("src", data.photo);
+                $("#friendPicked").modal("toggle");
                 //Clears the form on submitting
                 $("#name").val("");
                 $("#photo").val("");
@@ -533,10 +489,11 @@
                 $("#q10").val("");
             });
 
-        //clientside post route set up 
-    // $.post("api/survey", dummyVar, function(data){console.log(data);});
-        
 
+
+    });
+ 
+        
     </script>
 </body>
 

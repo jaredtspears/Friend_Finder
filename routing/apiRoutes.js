@@ -1,7 +1,5 @@
 var friendsData = require("../app/data/friends.js");
 
-
-
 module.exports = function(app) {
 
     //getting friends route for all the list of available friends data
@@ -10,6 +8,16 @@ module.exports = function(app) {
   });
 
 //posting routes 
+
+app.post("/api/friends", function(req, res) {
+    //friendsData.push(req.body);
+    //res.json(true);
+    let user = req.body;
+
+    for (var i = 0; i < user.scores.length; i++) {
+        user.scores[i] = parseInt(user.scores[i]);
+    }
+
 app.post("/api/survey", function(req, res) {
 
     //capturing data 
@@ -26,7 +34,8 @@ app.post("/api/survey", function(req, res) {
   console.log("this is current user results" + currentUserResults);
  
 //==========the loops======================
- //2 loops one over friends.js data, the other is internal and it will go over the scores and find the value
+ //2 loops one over friends.js data, the other is internal 
+ //and it will go over the scores and find the value
 
  for (var i =0; i<friends.length; i++){
      let friend = friends[i];
@@ -47,10 +56,6 @@ app.post("/api/survey", function(req, res) {
          index = i;
      }
  }
-   //loop through current user results (score)
-//    for (var i=0; i<currentUserResults.scores.length; i++) {
-//        currentUserResults.scores[i] = parseInt(user.scores[i]);
-//    }
    res.json(friends[index])
 });
-}
+})}
